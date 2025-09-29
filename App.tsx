@@ -1,21 +1,35 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StatusBar, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from './screens/HomeScreen';
+import WorkoutScreen from './screens/WorkoutScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import AIScreen from './screens/AIScreen';
+import WorkoutLogScreen from './screens/WorkoutLogScreen';
+import { WorkoutProvider } from './context/WorkoutContext';
+import WorkoutHistoryScreen from './screens/WorkoutHistoryScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.safe}>
-      <StatusBar barStyle="light-content" />
-      <View style={styles.container}>
-        <Text style={styles.title}>FlowFit 🚀</Text>
-        <Text style={styles.subtitle}>Your fitness journey starts here!</Text>
-      </View>
-    </SafeAreaView>
+    <WorkoutProvider>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+            tabBarStyle: { backgroundColor: '#1e293b', height: 60 },
+            tabBarLabelStyle: { color: '#fff', fontSize: 12 },
+          }}
+        >
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Workouts" component={WorkoutScreen} />
+          <Tab.Screen name="Profile" component={ProfileScreen} />
+          <Tab.Screen name="AI" component={AIScreen} />
+          <Tab.Screen name="WorkoutLog" component={WorkoutLogScreen} />
+          <Tab.Screen name="History" component={WorkoutHistoryScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </WorkoutProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#0f172a' },
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
-  title: { fontSize: 34, fontWeight: '700', color: '#fff' },
-  subtitle: { fontSize: 18, color: '#e6edf3', marginTop: 10, textAlign: 'center' }
-});
