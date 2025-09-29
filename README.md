@@ -25,14 +25,6 @@ FlowFit is a next-level mobile fitness app built with **React Native + Expo**. I
 - View **past workouts** with all exercises and performed sets.
 - Planned: visual progress tracking and history analysis.
 
-### 5️⃣ AI Integration (Planned)
-- AI-assisted guidance for fitness questions.
-- Motivational quote cards on the home screen.
-
-### 6️⃣ Mood-Based Workouts (Planned)
-- Select workouts based on your current mood.
-- Home-friendly exercises for different energy levels.
-
 ### 7️⃣ UI & Navigation
 - Modern **Bottom Tab Navigation**.
 - Seamless **Stack Navigation** for screens like Workout History.
